@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gowtham S | Data Scientist Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --cv: #8b5cf6; /* New color for CV button */
+            --cv-dark: #7c3aed; /* Darker shade for hover effect */
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjAuNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* New CV button style */
+        .btn-cv {
+            background-color: var(--cv);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-cv:hover {
+            background-color: var(--cv-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-skills {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h4 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-card h4 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .skill-card ul {
+            list-style-type: none;
+        }
+
+        .skill-card ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-card ul li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+        }
+
+        /* Experience & Education */
+        .timeline {
+            background-color: #f8fafc;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            z-index: 1;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 26px;
+            width: 2px;
+            height: calc(100% + 30px);
+            background-color: var(--gray);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .timeline-company {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .timeline-description ul {
+            padding-left: 20px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 8px;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-body {
+            padding: 25px;
+            flex: 1;
+        }
+
+        .project-body p {
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background-color: #e2e8f0;
+            color: #334155;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        .project-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+
+        .contact-text a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: #059669;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-skills {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation for the CV button */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-cv {
+            animation: pulse 2s infinite;
+        }
+
+        .btn-cv:hover {
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Gowtham<span>S</span></a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforming Data into Actionable Insights</h1>
+                <p>A passionate Data Scientist with expertise in statistical analysis, machine learning, and data visualization. Leveraging cutting-edge technologies to drive business growth through data-driven solutions.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-project-diagram"></i> View My Projects
+                    </a>
+                    <a href="./assets/Gowtham_CV.pdf" class="btn btn-cv" id="downloadCv">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Data Scientist & Analytics Professional</h3>
+                    <p>I'm Gowtham S, a dedicated Data Scientist with a strong background in statistical analysis, machine learning, and data visualization. My expertise lies in extracting valuable insights from complex datasets and developing predictive models to drive business growth.</p>
+                    <p>With experience across healthcare analytics, insurance claims processing, and revenue cycle management, I've developed automated solutions that enhance operational efficiency and strategic decision-making.</p>
+                    <p>Currently enhancing my skills through the Full Stack Data Science Engineer program at GUVI, I'm passionate about leveraging AI and ML to solve real-world challenges.</p>
+                </div>
+                <div class="about-skills" id="skills">
+                    <div class="skill-card">
+                        <h4><i class="fas fa-chart-line"></i> Data Science</h4>
+                        <ul>
+                            <li>Supervised & Unsupervised Learning</li>
+                            <li>Deep Learning with PyTorch</li>
+                            <li>Natural Language Processing</li>
+                            <li>EDA & Feature Engineering</li>
+                            <li>Feature Selection & Extraction</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h4><i class="fas fa-code"></i> Python & Databases</h4>
+                        <ul>
+                            <li>Python: Pandas, Scikit-Learn, NumPy</li>
+                            <li>Data Visualization: Matplotlib</li>
+                            <li>Web Apps: Streamlit</li>
+                            <li>Deep Learning: TensorFlow</li>
+                            <li>Databases: MySQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h4><i class="fas fa-database"></i> BI & Visualization</h4>
+                        <ul>
+                            <li>Power BI Dashboard Development</li>
+                            <li>Tableau Visualizations</li>
+                            <li>Interactive Data Storytelling</li>
+                            <li>KPI Tracking & Analytics</li>
+                            <li>Data-Driven Decision Support</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h4><i class="fas fa-cogs"></i> Technical Expertise</h4>
+                        <ul>
+                            <li>JSON Data Processing</li>
+                            <li>Automation with Python Scripts</li>
+                            <li>Predictive Model Deployment</li>
+                            <li>API Integration & Data Ingestion</li>
+                            <li>Healthcare Data Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section class="timeline" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Education</h2>
+            </div>
+            <div class="timeline-container">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <span class="timeline-date"> Nov 2024 - Present</span>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Senior Process Executive</h3>
+                        <div class="timeline-company">Prochant, Chennai</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Allocated insurance claims to users
+                                    openpyxlclient portals and automated the segregation of workable vs non-workable claims by converting JSON data
+                                    to Excel using Python (pandas,
+                                    openpyxl).</li>
+                                <li>Created automated Power BI dashboards and visualization tables to
+                                    track user-wise production, calling hours, andperformance by dollar value and claim
+                                    age (e.g., 60+, 90+ days).</li>
+                                <li> Segregated claims a s collectible or non-collectible
+                                    based on payer response patterns and historical resolution data tostreamline
+                                    follow-up workflows. </li>
+                                <li>Built interactive Power Bl visuals showing trends in call vs
+                                    non-call resolution, user productivity, and
+                                    claim status bycategory. </li>
+                                <li>Analyzed high-
+                                    dollar patient accounts, visualizing follow- up performance using line and bar charts
+                                    in Power Bl to supportclient strategy calls.</li>
+                                <li>Identified denial claim trends and
+                                    visualized denial causes by payer and
+                                    procedure, enabling clients to reduce future denialoccurrences with targeted
+                                    action plans.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <span class="timeline-date">2021 - 2022</span>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Senior Executive</h3>
+                        <div class="timeline-company">Technology Global Services, Chennai</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Led claims assignment operations from multiple client systems</li>
+                                <li>Developed Python scripts to process JSON claim data and export structured Excel reports</li>
+                                <li>Built comprehensive Power BI dashboards with dynamic filters and drill-downs</li>
+                                <li>Conducted deep analysis on high-value and denied claims</li>
+                                <li>Partnered with analysts to automate Power BI data refresh schedules</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <span class="timeline-date">2020 - 2021</span>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Data Processing Associate</h3>
+                        <div class="timeline-company">Greater Chennai Corporation</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Part of COVID-19 Emergency team collecting virus outbreak data in Ambattur Zone</li>
+                                <li>Maintained and updated databases to ensure data integrity</li>
+                                <li>Conducted regular audits and validation checks</li>
+                                <li>Identified and resolved data discrepancies and errors</li>
+                                <li>Implemented data backup and recovery procedures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="timeline-item">
+                    <span class="timeline-date">2024 - 2025</span>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Full Stack DATA SCIENCE Engineer</h3>
+                        <div class="timeline-company">GUVI, Chennai</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">2016 - 2020</span>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Bachelor of Engineering in EEE</h3>
+                        <div class="timeline-company">Panimalar Institute of Technology, Chennai</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Tourism Experience Analytics using ML</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Analyzed user preferences, travel patterns, and attraction data to build machine learning models for tourism analytics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Regression</span>
+                            <span class="tech-tag">Classification</span>
+                        </div>
+                        <ul>
+                            <li>Developed regression model to predict user ratings for attractions</li>
+                            <li>Built classification model to identify mode of visit (solo, family, business)</li>
+                            <li>Created recommendation system using collaborative filtering</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Predicting Crop Production</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Regression model to forecast crop production based on agricultural parameters.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Data Visualization</span>
+                        </div>
+                        <ul>
+                            <li>Forecasted crop production based on area harvested, yield per hectare, and year</li>
+                            <li>Utilized Random Forest Regressor to improve prediction accuracy</li>
+                            <li>Deployed the model using Streamlit for interactive predictions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Tennis Analytics with SportRadar API</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Designed pipeline to ingest and analyze tennis tournament data from Sportradar API.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">Data Parsing</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <ul>
+                            <li>Parsed complex JSON data into structured relational database</li>
+                            <li>Created visual insights on tournament structures and competition trends</li>
+                            <li>Delivered interactive dashboards for sports analysts and organizations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Bird Species Observation Analysis</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Analysis of bird species distribution and diversity in forest and grassland ecosystems.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Ecology</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                        </div>
+                        <ul>
+                            <li>Created interactive Power BI visualizations for habitat analysis</li>
+                            <li>Examined impact of environmental factors on bird populations</li>
+                            <li>Identified patterns of habitat preference across ecosystems</li>
+                            <li>Provided insights for habitat conservation and biodiversity management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm currently available for freelance work and full-time positions. Feel free to reach out if you have a project in mind or just want to connect!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Chennai, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:gowthampeter2508@gmail.com">gowthampeter2508@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+919940427453">+91 9940427453</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/gowtham-s" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Gowthampeter16" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:gowthampeter2508@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+919940427453"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Gowtham<span>S</span></div>
+                <p class="copyright">© 2024 Gowtham S. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // // CV Download Button
+        // const downloadCv = document.getElementById('downloadCv');
+        
+        // downloadCv.addEventListener('click', function(e) {
+        //     e.preventDefault();
+            
+        //     // In a real scenario, this would link to the actual CV file
+        //     // For now, we'll simulate a download with a confirmation
+        //     alert('In a live implementation, this would download the CV file.\n\nFor now, you can manually download the CV from the provided file.');
+            
+        //     // This would be the actual implementation:
+        //     // window.location.href = 'path/to/Gowtham_Data_Scientist_CV.pdf';
+        // });
+    </script>
+</body>
+</html>
